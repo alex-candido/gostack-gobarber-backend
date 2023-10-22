@@ -1,0 +1,74 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "darwin-arm64"]
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  name           String
+  username       String  @unique
+  email          String  @unique
+  hashedPassword String?
+  avatar         String?
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  UserToken UserToken[]
+
+  appointment_provider Appointment[]  @relation(name: "provider_id")
+  appointment_user     Appointment[]  @relation(name: "user_id")
+  notifications        Notification[] @relation(name: "recipient_id")
+}
+
+model UserToken {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  token String @unique @default(uuid())
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  user_id String @db.ObjectId
+  user    User   @relation(fields: [user_id], references: [id])
+}
+
+model Appointment {
+  id   String   @id @default(auto()) @map("_id") @db.ObjectId
+  date DateTime @db.Date
+
+  hour  Int
+  day   Int
+  month Int
+  year  Int
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  provider_id String @db.ObjectId
+  user_id     String @db.ObjectId
+
+  provider User @relation(fields: [provider_id], references: [id], name: "provider_id", onDelete: Cascade)
+  user     User @relation(fields: [user_id], references: [id], name: "user_id", onDelete: Cascade)
+}
+
+model Notification {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  content      String
+  recipient_id String  @db.ObjectId
+  read         Boolean @default(false)
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  provider User @relation(fields: [recipient_id], references: [id], name: "recipient_id", onDelete: Cascade)
+}
