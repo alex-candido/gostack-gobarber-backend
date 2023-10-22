@@ -1,3 +1,9 @@
+## Gerenciamento ramificações do Sistema
+
+- feature/creating-structures-and-patterns
+  - **Descrição**
+    - Adicionando estrutura de ferramentas de análise de código e padrões de projeto;
+
 ## Mapeamento de Features do Sistema
 - Cadastro de usuário
   - **Requisitos Funcionais**
