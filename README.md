@@ -8,6 +8,10 @@
   - **Descrição**
     - Adicionando estrutura de agrupamento de schemas do MongoDB com Prisma ORM;
 
+- feature/creating-structures-configuration-test-with-jest
+  - **Descrição**
+    - Adicionando estrutura de configurações de testes unitários com Jest;
+
 - feature/creating-project-solid-architecture
   - **Descrição**
     - Implementando estrutura do projeto com Design Orientado a Objetos utilizando SOLID;
