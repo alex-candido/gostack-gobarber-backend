@@ -1,4 +1,4 @@
-## Gerenciamento ramificações do Sistema
+## Gerenciamento Ramificações do Sistema
 
 - feature/creating-structures-and-patterns
   - **Descrição**
@@ -7,6 +7,10 @@
 - feature/creating-structures-schema-grouping-prism
   - **Descrição**
     - Adicionando estrutura de agrupamento de schemas do MongoDB com Prisma ORM;
+
+- feature/creating-structures-configuration-test-with-jest
+  - **Descrição**
+    - Adicionando estrutura de configurações de testes unitários com Jest;
 
 - feature/creating-project-solid-architecture
   - **Descrição**
