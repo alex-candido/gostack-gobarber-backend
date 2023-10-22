@@ -2,7 +2,15 @@
 
 - feature/creating-structures-and-patterns
   - **Descrição**
-    - Adicionando estrutura de ferramentas de análise de código e padrões de projeto;
+    - Adicionando estrutura de ferramentas de análise e padrões de código;
+
+- feature/creating-structures-schema-grouping-prism
+  - **Descrição**
+    - Adicionando estrutura de agrupamento de schemas do MongoDB com Prisma ORM;
+
+- feature/creating-project-solid-architecture
+  - **Descrição**
+    - Implementando estrutura do projeto com Design Orientado a Objetos utilizando SOLID;
 
 ## Mapeamento de Features do Sistema
 - Cadastro de usuário
